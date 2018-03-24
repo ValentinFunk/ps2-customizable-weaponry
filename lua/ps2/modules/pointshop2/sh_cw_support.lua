@@ -45,3 +45,9 @@ hook.Add("CW20HasAttachment", "PS2_HasCwAttachment", function( ply, attachmentNa
     -- false to allow other hooks to run as well
     return
 end )
+
+LibK.InitPostEntityPromise:Done( function( )
+    for key, attData in ipairs(CustomizableWeaponry.registeredAttachments) do
+	    game.ConsoleCommand(attData.cvar .. " 0\n")
+    end
+end )
